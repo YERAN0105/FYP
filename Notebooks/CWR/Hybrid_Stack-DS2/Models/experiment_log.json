@@ -1,0 +1,123 @@
+{
+    "random_state": 42,
+    "dataset": {
+        "total_samples": 2000,
+        "train_samples": 1400,
+        "val_samples": 300,
+        "test_samples": 300,
+        "features": [
+            "Water_Depth_cm",
+            "Soil_Moisture_%",
+            "Tank_Level_%",
+            "ET_mm_day",
+            "Rainfall_Predicted_mm",
+            "Crop_Stage"
+        ],
+        "target": "CWR_mm"
+    },
+    "monotonic_constraints": {
+        "Water_Depth_cm": -1,
+        "Soil_Moisture_%": -1,
+        "Tank_Level_%": 0,
+        "ET_mm_day": 1,
+        "Rainfall_Predicted_mm": -1,
+        "Crop_Stage": 0
+    },
+    "family1": {
+        "champion": "CatBoost",
+        "val_mae": 2.2916,
+        "all_models": {
+            "Random Forest": 2.9017,
+            "Gradient Boosting": 2.7111,
+            "XGBoost": 6.4693,
+            "LightGBM": 5.7512,
+            "CatBoost": 2.2916
+        }
+    },
+    "family2": {
+        "champion": "SVR",
+        "val_mae": 5.0633,
+        "all_models": {
+            "SVR": 5.0633,
+            "Ridge": 21.5386,
+            "ElasticNet": 21.3465
+        }
+    },
+    "family3": {
+        "champion": "MLP",
+        "val_mae": 3.1011,
+        "architecture": {
+            "hidden_layer_sizes": "(135, 239, 66)",
+            "activation": "relu",
+            "learning_rate_init": 0.037071,
+            "learning_rate": "constant",
+            "alpha": 0.000767
+        }
+    },
+    "meta_learner": {
+        "type": "Ridge",
+        "alpha": 0.000102,
+        "intercept": -0.320339,
+        "coefficients": {
+            "CatBoost": 0.899138,
+            "SVR": -0.023808,
+            "MLP": 0.137253
+        },
+        "oof_training_mae": 2.8535
+    },
+    "test_set_metrics": {
+        "CatBoost": {
+            "MAE": 2.3753,
+            "RMSE": 4.1261,
+            "R2": 0.9923
+        },
+        "SVR": {
+            "MAE": 5.5196,
+            "RMSE": 10.7021,
+            "R2": 0.9481
+        },
+        "MLP": {
+            "MAE": 2.8892,
+            "RMSE": 5.9591,
+            "R2": 0.9839
+        },
+        "Hybrid Stack": {
+            "MAE": 2.0366,
+            "RMSE": 3.8444,
+            "R2": 0.9933
+        }
+    },
+    "rule_violation": {
+        "Water_Depth_cm": 3.0,
+        "Soil_Moisture_%": 26.6667,
+        "ET_mm_day": 16.3333,
+        "Rainfall_Predicted_mm": 5.6667
+    },
+    "overall_rule_violation_rate": 12.9167,
+    "shap": {
+        "catboost_top_features": [
+            "Crop_Stage",
+            "Water_Depth_cm",
+            "Soil_Moisture_%",
+            "Rainfall_Predicted_mm",
+            "Tank_Level_%",
+            "ET_mm_day"
+        ],
+        "hybrid_stack_top_features": [
+            "Crop_Stage",
+            "Water_Depth_cm",
+            "Soil_Moisture_%",
+            "Rainfall_Predicted_mm",
+            "Tank_Level_%",
+            "ET_mm_day"
+        ]
+    },
+    "saved_files": {
+        "family1_champion": "./Models/family1_champion_catboost.pkl",
+        "family2_champion": "./Models/family2_champion_svr.pkl",
+        "family3_champion": "./Models/family3_champion_mlp.pkl",
+        "meta_learner": "./Models/meta_learner_ridge.pkl",
+        "Z_train": "./Models/meta_features/Z_train.npy",
+        "Z_test": "./Models/meta_features/Z_test.npy"
+    }
+}
