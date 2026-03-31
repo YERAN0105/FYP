@@ -1,0 +1,25 @@
+Model,Feature,Variant,Violations,Total Pairs,Violation %
+XGBoost,ET_mm_day,Constrained,0,14700,0.0
+XGBoost,ET_mm_day,Unconstrained,4117,14700,28.01
+XGBoost,Rainfall_Predicted_mm,Constrained,0,14700,0.0
+XGBoost,Rainfall_Predicted_mm,Unconstrained,4241,14700,28.85
+XGBoost,Water_Depth_cm,Constrained,0,14700,0.0
+XGBoost,Water_Depth_cm,Unconstrained,2913,14700,19.82
+XGBoost,Soil_Moisture_%,Constrained,0,14700,0.0
+XGBoost,Soil_Moisture_%,Unconstrained,5136,14700,34.94
+LightGBM,ET_mm_day,Constrained,0,14700,0.0
+LightGBM,ET_mm_day,Unconstrained,1476,14700,10.04
+LightGBM,Rainfall_Predicted_mm,Constrained,0,14700,0.0
+LightGBM,Rainfall_Predicted_mm,Unconstrained,1984,14700,13.5
+LightGBM,Water_Depth_cm,Constrained,0,14700,0.0
+LightGBM,Water_Depth_cm,Unconstrained,1776,14700,12.08
+LightGBM,Soil_Moisture_%,Constrained,0,14700,0.0
+LightGBM,Soil_Moisture_%,Unconstrained,2947,14700,20.05
+CatBoost,ET_mm_day,Constrained,0,14700,0.0
+CatBoost,ET_mm_day,Unconstrained,5203,14700,35.39
+CatBoost,Rainfall_Predicted_mm,Constrained,0,14700,0.0
+CatBoost,Rainfall_Predicted_mm,Unconstrained,5217,14700,35.49
+CatBoost,Water_Depth_cm,Constrained,0,14700,0.0
+CatBoost,Water_Depth_cm,Unconstrained,5353,14700,36.41
+CatBoost,Soil_Moisture_%,Constrained,0,14700,0.0
+CatBoost,Soil_Moisture_%,Unconstrained,5708,14700,38.83
